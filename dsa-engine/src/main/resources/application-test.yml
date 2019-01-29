@@ -1,0 +1,19 @@
+server:
+  port: 6868
+spring:
+  application:
+    name: dsa-manager
+  redis:
+      host: 118.89.109.139
+      port: 7001
+  datasource:
+    url: jdbc:MySQL://118.89.109.139/Public?useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  thymeleaf:
+    prefix: classpath:/templates/
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.cmcc

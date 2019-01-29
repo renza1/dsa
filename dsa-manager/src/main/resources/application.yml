@@ -1,3 +1,36 @@
+server:
+  port: 8881
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka.defaultZone}
+
 spring:
-              profiles:
-                active: test
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888/
+      name: dsa-manager,commons
+  application:
+    name: dsa-manager
+  redis:
+    host: 118.89.109.139
+    port: 7001
+  datasource:
+    url: jdbc:MySQL://118.89.109.139/Public?useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  thymeleaf:
+    prefix: classpath:/templates/
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.cmcc
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
